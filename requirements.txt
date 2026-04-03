@@ -1,0 +1,6 @@
+flask
+pandas 
+numpy
+pyPDF2
+python-docx
+anthropic

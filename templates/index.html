@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DataBot - AI Data Analyzer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <!-- Header -->
+    <div class="header">
+        <h1>📊 <span>Data</span>Bot</h1>
+        <p>Upload any file and analyze it with AI</p>
+    </div>
+
+    <div class="container">
+
+        <!-- Left Panel -->
+        <div class="left-panel">
+
+            <!-- Upload Box -->
+            <div class="upload-box">
+                <h2>📁 Upload Your File</h2>
+
+                <label class="upload-label">
+                    <input 
+                        type="file" 
+                        id="fileInput" 
+                        accept=".csv,.xlsx,.pdf,.docx"
+                        onchange="showFileName()"
+                    >
+                    <span class="upload-icon">📂</span>
+                    <p>Click to select a file or drag & drop</p>
+                    <p><span>CSV, Excel, PDF, Word</span> supported</p>
+                </label>
+
+                <span id="fileName"></span>
+
+                <button class="upload-btn" onclick="uploadFile()">
+                    Upload & Analyze
+                </button>
+            </div>
+
+            <!-- Loading -->
+            <div class="loading" id="loading">
+                ⏳ Analyzing your file, please wait...
+            </div>
+
+            <!-- Summary Box -->
+            <div class="summary-box" id="summaryBox">
+                <h2>📊 Data Summary</h2>
+                <div class="empty-state" id="emptyState">
+                    <span>📄</span>
+                    Upload a file to see the summary here
+                </div>
+                <pre id="summaryContent"></pre>
+            </div>
+
+        </div>
+
+        <!-- Right Panel -->
+        <div class="right-panel">
+
+            <div class="chat-header">
+                <h2>💬 Chat with Your Data</h2>
+                <div class="online-dot"></div>
+            </div>
+
+            <!-- Chat Messages -->
+            <div class="chat-box" id="chatBox">
+                <div class="bot-message">
+                    👋 Hello! Upload a file and ask me anything about your data!
+                </div>
+            </div>
+
+            <!-- Chat Input -->
+            <div class="chat-input">
+                <input
+                    type="text"
+                    id="userInput"
+                    placeholder="Ask something about your data..."
+                    onkeypress="handleEnter(event)"
+                >
+                <button onclick="sendMessage()">Send</button>
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+    <!-- Footer -->
+<div class="footer">
+    Designed & Developed by <span>Vishwas Suthar</span>
+</div>
+
+</body>
+</html>
